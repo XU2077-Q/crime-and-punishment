@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#3d4b5c"/>
+      <stop offset="0.33" stop-color="#6e8296"/>
+      <stop offset="0.67" stop-color="#a8b8c4"/>
+      <stop offset="1.00" stop-color="#d5cba8"/>
+    </linearGradient>
+    <filter id="blur70" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="blur60" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur40" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="40"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="800" cy="470" r="150" fill="#e8d9a8" opacity="0.5" filter="url(#blur50)"/>
+  <ellipse cx="500" cy="380" rx="600" ry="120" fill="#8fa2b3" opacity="0.3" filter="url(#blur70)"/>
+  <ellipse cx="1200" cy="420" rx="500" ry="100" fill="#b8c4ce" opacity="0.3" filter="url(#blur60)"/>
+  <ellipse cx="800" cy="480" rx="900" ry="60" fill="#e0d5b0" opacity="0.35" filter="url(#blur40)"/>
+  
+  <path d="M0,520 Q800,500 1600,520 L1600,900 L0,900 Z" fill="#c4cdd4"/>
+  <path d="M0,620 Q800,590 1600,640 L1600,720 Q800,670 0,700 Z" fill="#8fa2b3" opacity="0.6"/>
+  <g fill="#2c3844">
+    <rect x="150" y="470" width="120" height="50"/>
+    <path d="M140,470 L210,438 L280,470 Z"/>
+    <rect x="1380" y="475" width="100" height="45"/>
+    <path d="M1372,475 L1430,448 L1488,475 Z"/>
+  </g>
+  <g fill="#1c242c" opacity="0.9">
+    <circle cx="760" cy="574.5" r="8.25"/>
+    <path d="M750.25,585 Q760,577.5 769.75,585 L767.5,622.5 L752.5,622.5 Z"/>
+  </g>
+  <g fill="#1c242c" opacity="0.9">
+    <circle cx="810" cy="574.2" r="7.699999999999999"/>
+    <path d="M800.9,584 Q810,577 819.1,584 L817,619 L803,619 Z"/>
+  </g>
+  
+  <!-- siberia -->
+</svg>

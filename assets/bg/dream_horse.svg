@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#17121a"/>
+      <stop offset="0.50" stop-color="#241c26"/>
+      <stop offset="1.00" stop-color="#0e0a10"/>
+    </linearGradient>
+    <filter id="blur60" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur55" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="55"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="800" cy="520" r="260" fill="#8a4a3a" opacity="0.28" filter="url(#blur80)"/>
+  <ellipse cx="300" cy="250" rx="400" ry="130" fill="#3a2c3e" opacity="0.3" filter="url(#blur60)"/>
+  <ellipse cx="1250" cy="280" rx="420" ry="120" fill="#2e2433" opacity="0.3" filter="url(#blur55)"/>
+  
+  <path d="M0,900 L0,720 L1600,700 L1600,900 Z" fill="#0a080c"/>
+  <g fill="#050408">
+    <ellipse cx="800" cy="640" rx="130" ry="60"/>
+    <path d="M910,610 Q960,560 985,590 Q1000,610 975,625 L940,640 Z"/>
+    <path d="M690,650 L675,760 M740,660 L735,770 M850,660 L860,770 M905,645 L925,755" stroke="#050408" stroke-width="14"/>
+  </g>
+  <g fill="#070509" opacity="0.95">
+    <circle cx="200" cy="704.3" r="11.55"/>
+    <path d="M186.35,719 Q200,708.5 213.65,719 L210.5,771.5 L189.5,771.5 Z"/>
+  </g><g fill="#070509" opacity="0.95">
+    <circle cx="320" cy="689.5" r="13.75"/>
+    <path d="M303.75,707 Q320,694.5 336.25,707 L332.5,769.5 L307.5,769.5 Z"/>
+  </g><g fill="#070509" opacity="0.95">
+    <circle cx="1180" cy="688.3" r="11.55"/>
+    <path d="M1166.35,703 Q1180,692.5 1193.65,703 L1190.5,755.5 L1169.5,755.5 Z"/>
+  </g><g fill="#070509" opacity="0.95">
+    <circle cx="1320" cy="697.5" r="13.75"/>
+    <path d="M1303.75,715 Q1320,702.5 1336.25,715 L1332.5,777.5 L1307.5,777.5 Z"/>
+  </g><g fill="#070509" opacity="0.95">
+    <circle cx="1450" cy="696.3" r="11.55"/>
+    <path d="M1436.35,711 Q1450,700.5 1463.65,711 L1460.5,763.5 L1439.5,763.5 Z"/>
+  </g><g fill="#070509" opacity="0.95">
+    <circle cx="480" cy="681.5" r="13.75"/>
+    <path d="M463.75,699 Q480,686.5 496.25,699 L492.5,761.5 L467.5,761.5 Z"/>
+  </g><g fill="#070509" opacity="0.95">
+    <circle cx="1080" cy="704.3" r="11.55"/>
+    <path d="M1066.35,719 Q1080,708.5 1093.65,719 L1090.5,771.5 L1069.5,771.5 Z"/>
+  </g>
+  <path d="M340,700 L420,560 M1280,690 L1360,540" stroke="#070509" stroke-width="9"/>
+  <path d="M760,640 C700,700 640,760 580,830" fill="none" stroke="#a8232a" stroke-width="2" opacity="0.7" stroke-linecap="round"/>
+  <!-- dream_horse -->
+</svg>

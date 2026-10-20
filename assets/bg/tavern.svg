@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#2a1c10"/>
+      <stop offset="0.50" stop-color="#3d2812"/>
+      <stop offset="1.00" stop-color="#1a110a"/>
+    </linearGradient>
+    <filter id="blur70" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="blur50" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="50"/></filter>
+    <filter id="blur45" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="45"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="800" cy="240" r="200" fill="#d5a05a" opacity="0.4" filter="url(#blur60)"/>
+  <ellipse cx="800" cy="300" rx="600" ry="180" fill="#8a5c28" opacity="0.3" filter="url(#blur70)"/>
+  <ellipse cx="300" cy="500" rx="350" ry="120" fill="#5c3c1c" opacity="0.3" filter="url(#blur50)"/>
+  <ellipse cx="1300" cy="480" rx="380" ry="130" fill="#6e4a22" opacity="0.25" filter="url(#blur45)"/>
+  
+  <rect x="0" y="560" width="1600" height="90" fill="#241408"/>
+  <rect x="0" y="650" width="1600" height="250" fill="#160d05"/>
+  <path d="M300,560 L300,470 Q300,450 312,450 L324,450 Q336,450 336,470 L336,560 Z" fill="#0f0903"/><path d="M430,560 L430,470 Q430,450 442,450 L454,450 Q466,450 466,470 L466,560 Z" fill="#0f0903"/><path d="M560,560 L560,470 Q560,450 572,450 L584,450 Q596,450 596,470 L596,560 Z" fill="#0f0903"/><path d="M1040,560 L1040,470 Q1040,450 1052,450 L1064,450 Q1076,450 1076,470 L1076,560 Z" fill="#0f0903"/><path d="M1170,560 L1170,470 Q1170,450 1182,450 L1194,450 Q1206,450 1206,470 L1206,560 Z" fill="#0f0903"/><path d="M1300,560 L1300,470 Q1300,450 1312,450 L1324,450 Q1336,450 1336,470 L1336,560 Z" fill="#0f0903"/>
+  <g fill="#0c0702">
+    <circle cx="820" cy="600" r="26"/>
+    <path d="M790,650 Q820,610 850,650 L870,690 L770,690 Z"/>
+  </g>
+  <g fill="#0f0903" opacity="1">
+    <circle cx="1120" cy="660.9" r="12.649999999999999"/>
+    <path d="M1105.05,677 Q1120,665.5 1134.95,677 L1131.5,734.5 L1108.5,734.5 Z"/>
+  </g>
+  
+  <!-- tavern -->
+</svg>

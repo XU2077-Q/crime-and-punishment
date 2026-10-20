@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "title",
+      "status": "done",
+      "file": "assets/bg/title.jpg"
+    },
+    {
+      "id": "petersburg",
+      "status": "done",
+      "file": "assets/bg/petersburg.jpg"
+    },
+    {
+      "id": "tavern",
+      "status": "done",
+      "file": "assets/bg/tavern.jpg"
+    },
+    {
+      "id": "garret",
+      "status": "done",
+      "file": "assets/bg/garret.jpg"
+    },
+    {
+      "id": "pawnshop",
+      "status": "done",
+      "file": "assets/bg/pawnshop.jpg"
+    },
+    {
+      "id": "dream_horse",
+      "status": "done",
+      "file": "assets/bg/dream_horse.jpg"
+    },
+    {
+      "id": "porfiry",
+      "status": "done",
+      "file": "assets/bg/porfiry.jpg"
+    },
+    {
+      "id": "sonya_room",
+      "status": "done",
+      "file": "assets/bg/sonya_room.jpg"
+    },
+    {
+      "id": "square",
+      "status": "done",
+      "file": "assets/bg/square.jpg"
+    },
+    {
+      "id": "siberia",
+      "status": "done",
+      "file": "assets/bg/siberia.jpg"
+    }
+  ]
+}

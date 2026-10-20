@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>罪与罚 · 导赏视觉小说</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <!-- 背景双层（交叉淡化） -->
+  <div id="bgA" class="bg"></div>
+  <div id="bgB" class="bg"></div>
+  <div id="vignette"></div>
+
+  <!-- 红线 -->
+  <svg id="thread" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path id="threadPath" d="M-40,830 C300,790 520,880 820,845 S1300,800 1660,860"
+          fill="none" stroke="#a8232a" stroke-width="2.2" stroke-linecap="round"/>
+    <circle id="threadDot" r="4" fill="#c02c33"/>
+  </svg>
+
+  <!-- 黑场 -->
+  <div id="blackout"><span id="blackoutText"></span></div>
+
+  <!-- 顶部工具 -->
+  <div id="hud">
+    <div id="chapterTag"></div>
+    <div id="hudBtns">
+      <button id="btnBacklog" title="回想 (H)">回想</button>
+      <button id="btnMute" title="音乐开关 (M)">♪</button>
+      <button id="btnTitle" title="回标题">≡</button>
+    </div>
+  </div>
+
+  <!-- 对话框 -->
+  <div id="textbox">
+    <div id="speaker"></div>
+    <div id="line"></div>
+    <div id="nextHint">▼</div>
+  </div>
+
+  <!-- 导赏卡 -->
+  <div id="noteCard">
+    <div id="noteHead">导 赏</div>
+    <div id="noteBody"></div>
+    <div id="noteHint">点击继续</div>
+  </div>
+
+  <!-- 回想面板 -->
+  <div id="backlog">
+    <div id="backlogInner"></div>
+    <div id="backlogClose">关闭 (H)</div>
+  </div>
+
+  <!-- 标题画面 -->
+  <div id="titleScreen">
+    <div id="titleArt"></div>
+    <div id="titleBlock">
+      <div id="titleMain"><span class="tRed">罪</span><span class="tGap">与</span><span>罚</span></div>
+      <div id="titleSub">陀思妥耶夫斯基 · 导赏视觉小说（删节版）</div>
+      <div id="titleBtns">
+        <button id="btnStart">开 始</button>
+        <button id="btnContinue" disabled>继 续</button>
+        <button id="btnChapters">章 节</button>
+      </div>
+      <div id="chapterList"></div>
+      <div id="titleFoot">
+        配乐：拉赫玛尼诺夫《第二钢琴协奏曲》Op.18 选段<br>
+        MusOpen 录音（Skidmore College Orchestra / Anthony Holland 指挥）· CC BY-SA 3.0 · 经 IMSLP 获取
+      </div>
+    </div>
+  </div>
+
+  <!-- 音频解锁遮罩 -->
+  <div id="clickToStart"><span>点击进入 · 建议佩戴耳机</span></div>
+</div>
+<script src="js/script.js"></script>
+<script src="js/engine.js"></script>
+</body>
+</html>

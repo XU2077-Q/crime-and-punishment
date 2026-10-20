@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#2c332e"/>
+      <stop offset="0.50" stop-color="#39423a"/>
+      <stop offset="1.00" stop-color="#1c221e"/>
+    </linearGradient>
+    <filter id="blur60" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur50" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="50"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  
+  <ellipse cx="500" cy="300" rx="500" ry="170" fill="#4d5a4e" opacity="0.25" filter="url(#blur60)"/>
+  <ellipse cx="1100" cy="600" rx="480" ry="150" fill="#333c34" opacity="0.35" filter="url(#blur50)"/>
+  
+  <rect x="1020" y="180" width="220" height="560" fill="#141a15"/>
+  <rect x="1132" y="180" width="8" height="560" fill="#a8232a" opacity="0.9"/>
+  <circle cx="1120" cy="470" r="8" fill="#0b0d10"/>
+  <path d="M0,900 L0,760 L120,760 L120,700 L240,700 L240,640 L360,640 L360,900 Z" fill="#10150f"/>
+  <line x1="0" y1="760" x2="60" y2="700" stroke="#1e2620" stroke-width="4"/><line x1="60" y1="700" x2="120" y2="640" stroke="#1e2620" stroke-width="4"/><line x1="120" y1="640" x2="180" y2="640" stroke="#1e2620" stroke-width="4"/><line x1="180" y1="640" x2="240" y2="640" stroke="#1e2620" stroke-width="4"/><line x1="240" y1="640" x2="300" y2="640" stroke="#1e2620" stroke-width="4"/><line x1="300" y1="640" x2="360" y2="640" stroke="#1e2620" stroke-width="4"/>
+  <g fill="#080b08">
+    <circle cx="880" cy="600" r="22"/>
+    <path d="M852,622 Q880,600 908,622 L924,720 Q880,742 836,720 Z"/>
+    <path d="M872,700 L846,760 M890,700 L916,760" stroke="#080b08" stroke-width="10"/>
+  </g>
+  <g fill="#05070a" opacity="1">
+    <circle cx="1330" cy="709" r="16.5"/>
+    <path d="M1310.5,730 Q1330,715 1349.5,730 L1345,805 L1315,805 Z"/>
+  </g>
+  <path d="M1140,740 C1000,760 800,820 560,860" fill="none" stroke="#a8232a" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+  <!-- pawnshop -->
+</svg>

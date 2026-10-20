@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.00" stop-color="#8a7a52"/>
+      <stop offset="0.50" stop-color="#a89568"/>
+      <stop offset="1.00" stop-color="#6e6248"/>
+    </linearGradient>
+    <filter id="blur70" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="blur50" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="50"/></filter>
+    <filter id="blur45" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="45"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="300" cy="160" r="120" fill="#e8d9a8" opacity="0.55" filter="url(#blur40)"/>
+  <ellipse cx="800" cy="400" rx="900" ry="200" fill="#c9b98a" opacity="0.35" filter="url(#blur70)"/>
+  <ellipse cx="400" cy="560" rx="500" ry="140" fill="#9aa08a" opacity="0.25" filter="url(#blur50)"/>
+  <ellipse cx="1250" cy="520" rx="450" ry="120" fill="#b5a678" opacity="0.3" filter="url(#blur45)"/>
+  
+  <path d="M0,900 L0,520 L40,520 L40,330 L210,330 L210,520 L260,520 L260,260 L380,260 L380,520 L420,520 L420,370 L620,370 L620,520 L660,520 L660,220 L770,220 L770,520 L820,520 L820,340 L1010,340 L1010,520 L1060,520 L1060,280 L1200,280 L1200,520 L1250,520 L1250,360 L1430,360 L1430,520 L1470,520 L1470,310 L1600,310 L1600,520 L1600,520 L1600,900 Z" fill="#4a4030"/>
+  <rect x="0" y="700" width="1600" height="200" fill="#3a3428"/>
+  <path d="M0,700 Q800,660 1600,700 L1600,730 Q800,690 0,730 Z" fill="#57503e"/>
+  <g stroke="#2c2820" stroke-width="6"><line x1="0" y1="668" x2="0" y2="700"/><line x1="80" y1="668" x2="80" y2="700"/><line x1="160" y1="668" x2="160" y2="700"/><line x1="240" y1="668" x2="240" y2="700"/><line x1="320" y1="668" x2="320" y2="700"/><line x1="400" y1="668" x2="400" y2="700"/><line x1="480" y1="668" x2="480" y2="700"/><line x1="560" y1="668" x2="560" y2="700"/><line x1="640" y1="668" x2="640" y2="700"/><line x1="720" y1="668" x2="720" y2="700"/><line x1="800" y1="668" x2="800" y2="700"/><line x1="880" y1="668" x2="880" y2="700"/><line x1="960" y1="668" x2="960" y2="700"/><line x1="1040" y1="668" x2="1040" y2="700"/><line x1="1120" y1="668" x2="1120" y2="700"/><line x1="1200" y1="668" x2="1200" y2="700"/><line x1="1280" y1="668" x2="1280" y2="700"/><line x1="1360" y1="668" x2="1360" y2="700"/><line x1="1440" y1="668" x2="1440" y2="700"/><line x1="1520" y1="668" x2="1520" y2="700"/><line x1="1600" y1="668" x2="1600" y2="700"/></g>
+  <g fill="#221f18" opacity="0.9">
+    <circle cx="560" cy="656" r="11"/>
+    <path d="M547,670 Q560,660 573,670 L570,720 L550,720 Z"/>
+  </g>
+  <g fill="#221f18" opacity="0.7">
+    <circle cx="1120" cy="657.1" r="9.35"/>
+    <path d="M1108.95,669 Q1120,660.5 1131.05,669 L1128.5,711.5 L1111.5,711.5 Z"/>
+  </g>
+  <path d="M-20,640 C500,600 1000,660 1620,610" fill="none" stroke="#a8232a" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+  <!-- petersburg -->
+</svg>
