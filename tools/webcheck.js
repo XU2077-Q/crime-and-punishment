@@ -23,7 +23,7 @@ process.on('uncaughtException', e => { killEdgeTree(); console.error(e); process
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // ── 极简静态服务器（file:// 下 fetch mp3 会被 CORS 挡，必须走 http）──
-const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.mp3': 'audio/mpeg' };
+const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.mp3': 'audio/mpeg', '.mp4': 'video/mp4' };
 const server = http.createServer((req, res) => {
   const p = path.join(ROOT, decodeURIComponent(req.url.split('?')[0] === '/' ? '/index.html' : req.url.split('?')[0]));
   fs.readFile(p, (err, data) => {
@@ -119,7 +119,8 @@ async function main() {
   await cdp.send('Page.enable'); await cdp.send('Runtime.enable'); await cdp.send('Log.enable');
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1280, height: 720, deviceScaleFactor: 1, mobile: false });
 
-  await cdp.send('Page.navigate', { url: `http://127.0.0.1:${HTTP_PORT}/index.html` });
+  // ?fast：引擎把打字机降到 1ms/字，回归时长减半
+  await cdp.send('Page.navigate', { url: `http://127.0.0.1:${HTTP_PORT}/index.html?fast` });
   await sleep(2500);
   await cdp.shot(path.join(OUT, '01-标题屏.png'));
 
@@ -139,17 +140,20 @@ async function main() {
     black: document.getElementById('blackout').classList.contains('show'),
     blackText: document.getElementById('blackoutText').textContent,
     title: !document.getElementById('titleScreen').classList.contains('gone'),
+    video: document.getElementById('bgVideo').classList.contains('show'),
   }))()`;
 
   const shots = [];
   let shotN = 3, lastTag = '', lastSig = '';
   const want = { // 每个场景至少留一张
-    '序章 · 导读': '序章', '第一幕 · 彼得堡的闷热': '彼得堡', '第二幕 · 罪': '罪',
-    '第三幕 · 罚': '罚', '第四幕 · 索尼娅': '索尼娅', '第五幕 · 大地': '大地', '尾声 · 复活': '复活',
+    '序章 · 导读': '序章', '第一幕 · 彼得堡的闷热': '闷热', '第二幕 · 一笔账': '一笔账',
+    '第三幕 · 罪': '罪', '第四幕 · 高烧': '高烧', '第五幕 · 波尔菲里': '波尔菲里',
+    '第六幕 · 索尼娅与拉撒路': '索尼娅', '第七幕 · 葬礼饭局': '葬礼', '第八幕 · 认罪': '认罪',
+    '第九幕 · 斯维德里盖洛夫': '斯维德里盖洛夫', '第十幕 · 大地': '大地', '尾声 · 复活': '复活',
   };
   const taken = {};
 
-  for (let i = 0; i < 400; i++) {
+  for (let i = 0; i < 900; i++) {  // 12 章 ~280 文本拍×2 + 导赏卡 + 黑场 ≈ 620 次，留 40% 余量
     const s = await cdp.evalJS(state);
     if (s.title) { // 走完了，回标题
       await cdp.shot(path.join(OUT, `${String(shotN++).padStart(2, '0')}-终·回到标题.png`));

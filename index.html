@@ -12,12 +12,21 @@
   <!-- 背景双层（交叉淡化） -->
   <div id="bgA" class="bg"></div>
   <div id="bgB" class="bg"></div>
+
+  <!-- 动态场景层：视频 / 烛光 / 雾 / 粒子（雪） -->
+  <video id="bgVideo" muted loop playsinline preload="none"></video>
+  <div id="glow"></div>
+  <div id="fogA"></div>
+  <div id="fogB"></div>
+  <canvas id="fxCanvas"></canvas>
   <div id="vignette"></div>
 
   <!-- 红线 -->
   <svg id="thread" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <path id="threadPath" d="M-40,830 C300,790 520,880 820,845 S1300,800 1660,860"
           fill="none" stroke="#a8232a" stroke-width="2.2" stroke-linecap="round"/>
+    <path id="threadFlow" d="M-40,830 C300,790 520,880 820,845 S1300,800 1660,860"
+          fill="none" stroke="#c02c33" stroke-width="1.6" stroke-linecap="round"/>
     <circle id="threadDot" r="4" fill="#c02c33"/>
   </svg>
 
@@ -59,7 +68,7 @@
     <div id="titleArt"></div>
     <div id="titleBlock">
       <div id="titleMain"><span class="tRed">罪</span><span class="tGap">与</span><span>罚</span></div>
-      <div id="titleSub">陀思妥耶夫斯基 · 导赏视觉小说（删节版）</div>
+      <div id="titleSub">陀思妥耶夫斯基 · 导赏视觉小说</div>
       <div id="titleBtns">
         <button id="btnStart">开 始</button>
         <button id="btnContinue" disabled>继 续</button>

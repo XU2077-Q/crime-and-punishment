@@ -1,4 +1,7 @@
 build/
+tools/video_staging/
 tools/art_src/_staging/
 tools/art_src/audio_src/
 node_modules/
+.claude/
+skills-lock.json

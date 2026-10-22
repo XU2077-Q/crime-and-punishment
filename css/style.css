@@ -13,25 +13,85 @@ html, body { height: 100%; overflow: hidden; background: #0b0d10; }
 body { font-family: var(--serif); color: var(--ink); }
 #app { position: fixed; inset: 0; }
 
-/* ── 背景 ── */
+/* ── 背景（z:1）── */
 .bg {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 1;
   background-size: cover; background-position: center;
-  opacity: 0; transition: opacity 1.4s ease;
+  opacity: 0; transition: opacity 1.4s ease, transform 32s linear;
+  will-change: transform, opacity;
 }
 .bg.show { opacity: 1; }
+/* Ken Burns：transition 驱动而非 keyframes，换章/换向都不跳帧。
+   data-kb 切换时可见层平滑漂向新姿态；退场层 1.4s 内只回退一点点，不可辨。 */
+#app[data-kb="in"] .bg.show { transform: scale(1.08); }
+#app[data-kb="pan"] .bg.show { transform: scale(1.07) translateX(-2.2%); }
+#app[data-kb="out"] .bg { transform: scale(1.08); }
+#app[data-kb="out"] .bg.show { transform: scale(1); }
+
+/* ── 动态场景层 ── */
+/* 视频（z:2）：与底层静态 jpg 同画面，加载失败时静态图天然兜底 */
+#bgVideo {
+  position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; pointer-events: none;
+  transition: opacity 1.2s ease; background: transparent;
+}
+#bgVideo.show { opacity: 1; }
+/* 烛光（z:3）：暖橙底光，不规则呼吸 */
+#glow {
+  position: absolute; left: 50%; bottom: 0; width: 120%; height: 70%;
+  transform: translateX(-50%); z-index: 3; pointer-events: none;
+  opacity: 0; transition: opacity 2.5s ease;
+  background: radial-gradient(ellipse 55% 60% at 50% 88%,
+    rgba(255,180,90,.16), rgba(255,150,60,.06) 45%, transparent 72%);
+}
+body.fx-candle #glow { opacity: 1; animation: candle 5.5s ease-in-out infinite; }
+@keyframes candle {
+  0% { opacity: .85; } 23% { opacity: 1; } 41% { opacity: .78; }
+  58% { opacity: .95; } 76% { opacity: .82; } 100% { opacity: .85; }
+}
+/* 雾（z:3）：两层大渐变反向漂移 */
+#fogA, #fogB {
+  position: absolute; inset: -20%; z-index: 3; pointer-events: none;
+  opacity: 0; transition: opacity 3s ease; mix-blend-mode: screen;
+}
+body.fx-fog #fogA, body.fx-fog #fogB { opacity: 1; }
+#fogA {
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 70%, rgba(200,205,215,.14), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 70% 30%, rgba(190,198,210,.10), transparent 70%);
+  animation: fogDriftA 60s ease-in-out infinite alternate;
+}
+#fogB {
+  background:
+    radial-gradient(ellipse 55% 45% at 65% 75%, rgba(205,210,220,.12), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 25% 25%, rgba(185,192,205,.08), transparent 70%);
+  animation: fogDriftB 90s ease-in-out infinite alternate;
+}
+@keyframes fogDriftA { from { transform: translateX(-6%); } to { transform: translateX(6%); } }
+@keyframes fogDriftB { from { transform: translateX(7%) translateY(-2%); } to { transform: translateX(-7%) translateY(2%); } }
+/* 粒子画布（z:4）：雪，JS 唯一 rAF 驱动 */
+#fxCanvas {
+  position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%;
+  pointer-events: none; opacity: 0; transition: opacity 2s ease;
+}
+body.fx-snow #fxCanvas { opacity: 1; }
+
 #vignette {
-  position: absolute; inset: 0; pointer-events: none;
+  position: absolute; inset: 0; z-index: 5; pointer-events: none;
   background:
     radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%),
     linear-gradient(to top, rgba(0,0,0,.55), transparent 34%);
 }
 
-/* ── 红线 ── */
-#thread { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+/* ── 红线（z:6）── */
+#thread { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 6;
   opacity: 0; transition: opacity 2s ease; filter: drop-shadow(0 0 4px rgba(168,35,42,.6)); }
 #threadPath { stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: draw 6s ease forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
+/* 流动虚线：6+14=20，offset -20 无缝循环 */
+#threadFlow { stroke-dasharray: 6 14; animation: lineFlow 3.5s linear infinite; }
+@keyframes lineFlow { to { stroke-dashoffset: -20; } }
+#threadDot { filter: drop-shadow(0 0 5px rgba(192,44,51,.9)); }
 
 /* ── 黑场 ── */
 #blackout {
@@ -180,8 +240,32 @@ body { font-family: var(--serif); color: var(--ink); }
 #clickToStart.show { display: flex; }
 #clickToStart span { font-size: 18px; letter-spacing: .5em; color: var(--ink); animation: bob 1.6s infinite; }
 
+/* ── 演出特效：震屏 / 文字微颤 ── */
+#app.shake { animation: shake .45s linear; }
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  15% { transform: translate(-6px, 2px); } 30% { transform: translate(5px, -3px); }
+  45% { transform: translate(-4px, 1px); } 60% { transform: translate(4px, 2px); }
+  75% { transform: translate(-2px, -1px); } 90% { transform: translate(2px, 0); }
+}
+#line.tremble { animation: tremble .18s linear infinite; }
+@keyframes tremble {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(.6px, -.4px); }
+  50% { transform: translate(-.5px, .3px); }
+  75% { transform: translate(.3px, .5px); }
+}
+
 @media (max-width: 700px) {
   #textbox { padding: 14px 18px 18px; bottom: 3%; min-height: 110px; }
   #backlogInner { inset: 4% 5% 10%; }
   #hudBtns button { font-size: 11px; padding: 4px 8px; }
+}
+
+/* 减弱动态：关掉一切循环动画与位移，保留不透明的静态呈现 */
+@media (prefers-reduced-motion: reduce) {
+  .bg, .bg.show { transition: opacity 1.4s ease !important; transform: none !important; }
+  #fogA, #fogB, #glow, #threadFlow, #nextHint, #clickToStart span,
+  #line.tremble, #app.shake { animation: none !important; }
+  #fxCanvas { display: none; }
 }
