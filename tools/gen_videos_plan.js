@@ -113,7 +113,19 @@ function findSkill() {
 }
 
 function findFfmpeg() {
-	for (const c of ["ffmpeg", "ffmpeg.exe"]) {
+	const candidates = ["ffmpeg", "ffmpeg.exe"];
+	// winget 装完不重开 shell 时 PATH 里没有，直接指到包目录兜底
+	try {
+		const pkgs = path.join(os.homedir(), "AppData", "Local", "Microsoft", "WinGet", "Packages");
+		for (const d of fs.readdirSync(pkgs)) {
+			if (!/^Gyan\.FFmpeg/i.test(d)) continue;
+			for (const sub of fs.readdirSync(path.join(pkgs, d))) {
+				const p = path.join(pkgs, d, sub, "bin", "ffmpeg.exe");
+				if (fs.existsSync(p)) candidates.push(p);
+			}
+		}
+	} catch (_) { /* 没装过 winget 包就只靠 PATH */ }
+	for (const c of candidates) {
 		const r = spawnSync(c, ["-version"], { stdio: "pipe" });
 		if (!r.error && r.status === 0) return c;
 	}
